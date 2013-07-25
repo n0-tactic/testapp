@@ -1,0 +1,18 @@
+<h1>Гостевая книга</h1>
+
+<% if @posts.empty? %>
+  <b>Пока нет сообщений. Будешь первым?<b><br/>
+<% else %>
+  <table>
+    <% @posts.each do |i| %>
+      <tr>
+        <td>
+          <%= i.name %><br/>
+          <%= i.email %>
+        </td>
+        <td><%= i.text %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<%= link_to 'Написать', new_post_path %>
